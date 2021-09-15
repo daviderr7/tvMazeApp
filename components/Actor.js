@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { TouchableOpacity, View } from "react-native";
 import { Image, Text } from "react-native-elements";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import Styles from './Actor.android.style';
 
 const Actor = ({ id, name, image }) => {
@@ -19,7 +18,7 @@ const Actor = ({ id, name, image }) => {
           style={Styles.image}
         ></Image>
       ) : (
-        null
+        <Image source={require('../assets/noPicture.png')} style={Styles.image}></Image>
       )}
 
       <Text  style={Styles.title}>{name}</Text>

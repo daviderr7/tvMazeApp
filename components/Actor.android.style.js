@@ -8,10 +8,11 @@ export default StyleSheet.create({
     margin: 5,
     alignContent: "center",
     borderRadius: 10,
+    flexDirection: "row",
   },
   image: {
-    width: "100%",
-    height: 180,
+    width: 100,
+    height: 100,
   },
   title: {
     color: Styles.Colors.WHITE,
@@ -36,9 +37,9 @@ export default StyleSheet.create({
     fontWeight: Styles.Typography.FONT_WEIGHT_REGULAR,
   },
   yearRatingContainer: {
-    flex:1,
+    flex: 1,
     alignItems: "center",
     flexDirection: "row",
-    paddingBottom:10
+    paddingBottom: 10,
   },
 });

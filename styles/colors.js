@@ -1,14 +1,9 @@
-export const PRIMARY = '#1a759f';
-export const SECONDARY = '#767676';
-export const WHITE = '#FFFFFF';
-export const BLACK = '#000000';
+export const PRIMARY = "#1a759f";
+export const SECONDARY = "#76c893";
+export const WHITE = "#FFFFFF";
+export const BLACK = "#000000";
+export const ORANGE = "#F48C3E";
 
-// ACTIONS
-export const SUCCESS = '#3adb76';
-export const WARNING = '#ffae00';
-export const ALERT = '#cc4b37';
-
-// GRAYSCALE
-export const GRAY_LIGHT = '#e6e6e6';
-export const GRAY_MEDIUM = '#cacaca';
-export const GRAY_DARK = '#282828';
+export const GRAY_LIGHT = "#B0B0B0";
+export const GRAY_MEDIUM = "#808080";
+export const GRAY_DARK = "#505050";

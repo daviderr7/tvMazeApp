@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import { SearchBar } from "react-native-elements";
 import Actor from "../../components/Actor";
 import { getActorsByName } from "../../services/moviesApi";
+import { Colors } from "../../styles";
+import Styles from "./Actors.android.style";
 
 const ActorsScreen = () => {
   const [actors, setActors] = useState([]);
@@ -15,9 +17,7 @@ const ActorsScreen = () => {
 
     getActorsByName(search, signal).then((data) => {
       if (data && data.error) {
-        //console.log(data.error);
       } else {
-        //console.log(data);
         setActors(data);
       }
     });
@@ -29,23 +29,30 @@ const ActorsScreen = () => {
   };
 
   const renderActors = ({ item }) => (
-    <Actor id={item.person.id} name={item.person.name} image={item.person.image} />
+    <Actor
+      id={item.person.id}
+      name={item.person.name}
+      image={item.person.image}
+    />
   );
   return (
-    <>
+    <View style={Styles.container}>
       <SearchBar
-        placeholder="Type Here..."
+        placeholder="Search actors..."
         onChangeText={(value) => searchActors(value)}
         value={search}
-        inputContainerStyle={{borderRadius:25}}
+        containerStyle={{ backgroundColor: Colors.BLACK }}
+        inputContainerStyle={{
+          borderRadius: 25,
+          backgroundColor: Colors.GRAY_DARK,
+        }}
       />
       <FlatList
         data={actors}
         keyExtractor={(item) => item.person.id.toString()}
         renderItem={renderActors}
-        contentContainerStyle={{ alignItems: "center" }}
       />
-    </>
+    </View>
   );
 };
 export default ActorsScreen;

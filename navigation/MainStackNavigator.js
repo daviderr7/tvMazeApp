@@ -9,8 +9,21 @@ const MainStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="TabNavigator"  component={BottomTabsNavigator} options={{headerShown:false,title:"TvMaze app",headerTintColor:'orange',headerStyle:{backgroundColor:'black'}}} ></Stack.Screen>
-        <Stack.Screen name="ShowsSearchScreen" component={ShowsSearchScreen} options={{headerShown:false}}></Stack.Screen>
+        <Stack.Screen
+          name="TabNavigator"
+          component={BottomTabsNavigator}
+          options={{
+            headerShown: false,
+            title: "TvMaze app",
+            headerTintColor: "orange",
+            headerStyle: { backgroundColor: "black" },
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="ShowsSearchScreen"
+          component={ShowsSearchScreen}
+          options={{ headerShown: false }}
+        ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

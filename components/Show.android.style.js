@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 180,
+    height: 150,
   },
   title: {
     color: Styles.Colors.WHITE,
@@ -36,9 +36,9 @@ export default StyleSheet.create({
     fontWeight: Styles.Typography.FONT_WEIGHT_REGULAR,
   },
   yearRatingContainer: {
-    flex:1,
+    flex: 1,
     alignItems: "center",
     flexDirection: "row",
-    paddingBottom:10
+    paddingBottom: 10,
   },
 });

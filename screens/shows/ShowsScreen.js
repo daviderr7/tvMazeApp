@@ -5,6 +5,7 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import OverlayComponent from "../../components/OverlayComponent";
 import Show from "../../components/Show";
 import { getAllShows, getShowByName } from "../../services/moviesApi";
+import { Colors } from "../../styles";
 import Styles from "./Shows.android.style";
 
 const dimensions = {
@@ -17,8 +18,6 @@ const ShowsScreen = ({ navigation }) => {
   const [shows, setShows] = useState([]);
   const [toggleOverlay, setToggleOverlay] = useState(true);
   const [page, setPage] = useState(0);
-  
-  console.log("ancho--->>" + dimensions.fullWidth);
 
   const getShows = async () => {
     const abortController = new AbortController();
@@ -29,19 +28,17 @@ const ShowsScreen = ({ navigation }) => {
       console.log(data.error);
     } else {
       //console.log(data);
-      setShows([...shows,...data]);
+      setShows([...shows, ...data]);
       setToggleOverlay(false);
     }
     return function cleanup() {
       abortController.abort();
     };
-
   };
 
-  const loadMoreShows=()=>{
-    setPage(page+1)
-    console.log('mas pag;ina');
-  }
+  const loadMoreShows = () => {
+    setPage(page + 1);
+  };
 
   useEffect(() => {
     getShows();
@@ -54,18 +51,22 @@ const ShowsScreen = ({ navigation }) => {
       poster={item.image}
       year={item.premiered}
       rating={item.rating}
+      width={100}
+      height={200}
     />
   );
   return (
     <>
-    <OverlayComponent isVisible={toggleOverlay}/>
+      <OverlayComponent isVisible={toggleOverlay} />
       <View style={Styles.searchContainer}>
-        <Text h1 style={{color:'#1a759f',alignSelf:'flex-start'}}>Shows</Text> 
+        <Text h1 style={Styles.headerText}>
+          Series
+        </Text>
         <MaterialCommunityIcons
           name="magnify"
           onPress={() => navigation.navigate("ShowsSearchScreen")}
           size={30}
-          color={"white"}
+          color={Colors.WHITE}
         ></MaterialCommunityIcons>
       </View>
       <FlatList
@@ -77,7 +78,8 @@ const ShowsScreen = ({ navigation }) => {
         contentContainerStyle={{
           backgroundColor: Styles.container.backgroundColor,
         }}
-
+        onEndReachedThreshold={0.3}
+        onEndReached={loadMoreShows}
       />
     </>
   );

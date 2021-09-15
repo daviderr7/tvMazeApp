@@ -9,10 +9,7 @@ const BottomTab = createMaterialBottomTabNavigator();
 
 const BottomTabsNavigator = () => {
   return (
-    <BottomTab.Navigator
-      shifting={true}
-      activeColor="#f0edf6"
-    >
+    <BottomTab.Navigator shifting={true} activeColor="#f0edf6">
       <BottomTab.Screen
         name="ShowsTab"
         component={ShowsStackNavigator}
@@ -31,7 +28,7 @@ const BottomTabsNavigator = () => {
         name="ActorsTab"
         component={ActorsStackNavigator}
         options={{
-          tabBarColor: "#76c893",
+          tabBarColor: "#1a759f",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
               name="account-search"

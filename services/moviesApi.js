@@ -86,18 +86,6 @@ const getEpisoById = async (episodeId, signal) => {
   }
 };
 
-const getActors = async (name, signal) => {
-  try {
-    let response = await fetch(`${BASE_URL}/search/shows?q=${name}`, {
-      method: "GET",
-      signal: signal,
-    });
-    return await response.json();
-  } catch (err) {
-    console.log(err);
-  }
-};
-
 const getActorsByName = async (name, signal) => {
   try {
     let response = await fetch(`${BASE_URL}/search/people?q=${name}`, {
@@ -131,5 +119,5 @@ export {
   getActorById,
   getSeasons,
   getEpisodes,
-  getEpisoById
+  getEpisoById,
 };

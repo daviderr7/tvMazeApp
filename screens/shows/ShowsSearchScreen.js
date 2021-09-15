@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { FlatList } from "react-native";
+import { Dimensions, FlatList, View } from "react-native";
 import { SearchBar } from "react-native-elements";
 import Show from "../../components/Show";
 import { getShowByName } from "../../services/moviesApi";
+import Styles from "./ShowsSearch.android";
 
+const dimensions = {
+  fullHeight: Dimensions.get("window").height,
+  fullWidth: Dimensions.get("window").width,
+  columns: Dimensions.get("window").width < 500 ? 3 : 5,
+};
 const ShowsSearchScreen = () => {
   const [shows, setShows] = useState([]);
   const [search, setSearch] = useState();
@@ -30,16 +36,19 @@ const ShowsSearchScreen = () => {
 
   const renderShows = ({ item }) => (
     <Show
+      id={item.show.id}
       title={item.show.name}
       poster={item.show.image}
-      genre={item.show.genre}
-      reting={item.show.rating}
+      year={item.show.premiered}
+      rating={item.show.rating}
+      width={100}
+      height={200}
     />
   );
   return (
-    <>
+    <View style={{ flex: 1, backgroundColor: "black" }}>
       <SearchBar
-        placeholder="Type Here..."
+        placeholder="Search series..."
         onChangeText={(value) => searchShows(value)}
         value={search}
         inputContainerStyle={{ borderRadius: 25 }}
@@ -48,9 +57,13 @@ const ShowsSearchScreen = () => {
         data={shows}
         keyExtractor={(item) => item.show.id.toString()}
         renderItem={renderShows}
-        contentContainerStyle={{ alignItems: "center" }}
+        numColumns={dimensions.columns}
+        columnWrapperStyle={Styles.container}
+        contentContainerStyle={{
+          backgroundColor: Styles.container.backgroundColor,
+        }}
       />
-    </>
+    </View>
   );
 };
 export default ShowsSearchScreen;

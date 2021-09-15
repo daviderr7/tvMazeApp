@@ -4,14 +4,11 @@ import { StyleSheet, View } from "react-native";
 import MainStackNavigator from "./navigation/MainStackNavigator";
 import { Colors } from "./styles";
 
-
 export default function App() {
- 
-
   return (
     <View style={styles.container}>
-      <StatusBar style="light"/>
-      <MainStackNavigator/>
+      <StatusBar style="light" />
+      <MainStackNavigator />
     </View>
   );
 }
@@ -19,8 +16,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'black',
+    backgroundColor: "black",
     justifyContent: "center",
-    paddingTop:30,
+    paddingTop: 30,
   },
 });

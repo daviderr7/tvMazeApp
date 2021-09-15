@@ -1,48 +1,55 @@
-import { StyleSheet } from 'react-native';
-import * as Styles from '../../styles/index';
-import { FONT_WEIGHT_BOLD } from '../../styles/typography';
+import { StyleSheet } from "react-native";
+import * as Styles from "../../styles/index";
+import { FONT_WEIGHT_BOLD } from "../../styles/typography";
 
 export default StyleSheet.create({
   container: {
-    flex:1,
-    backgroundColor:Styles.Colors.BLACK
+    flex: 1,
+    backgroundColor: Styles.Colors.BLACK,
   },
-  imageContainer:{
-    flex:0.4
+  imageContainer: {
+    flex: 1,
   },
-  detailsContainer:{
-    flex: 1, backgroundColor: "#333333"
+  detailsContainer: {
+    flex: 1,
+    backgroundColor: Styles.Colors.BLACK,
   },
-  detailsBody:{
+  detailsBody: {
     marginTop: 10,
-    marginHorizontal:20,
-     flex: 1, backgroundColor: "#333333"
+    marginHorizontal: 20,
+    flex: 1,
+    backgroundColor: Styles.Colors.BLACK,
   },
-  title:{
-    color: "white", fontSize: 40 
+  title: {
+    color: Styles.Colors.WHITE,
+    fontSize: Styles.Typography.FONT_SIZE_40,
   },
-  genres:{
-    color: "white", fontSize: 20 
+  genres: {
+    color: Styles.Colors.ORANGE,
+    fontSize: Styles.Typography.FONT_SIZE_16,
   },
-  summary:{
-    color: "white", fontSize: 12 
+  summary: {
+    paddingTop: 15,
+    color: Styles.Colors.GRAY_LIGHT,
+    fontSize: Styles.Typography.FONT_SIZE_12,
+    textAlign: "justify",
   },
-  airing:{
-    color: "white", fontSize: 12
+  airing: {
+    paddingTop: 15,
+    color: Styles.Colors.SECONDARY,
+    fontSize: 12,
   },
-  seasonContainer:{
-    
+  seasonContainer: {},
+  seasonText: {
+    color: Styles.Colors.WHITE,
+    fontSize: 20,
+    fontWeight: FONT_WEIGHT_BOLD,
   },
-  seasonText:{
-    color:"white",
-    fontSize:20,
-    fontWeight:FONT_WEIGHT_BOLD
+  episodeContainer: {
+    backgroundColor: Styles.Colors.PRIMARY,
   },
-  episodeContainer:{
-    backgroundColor:Styles.Colors.PRIMARY,
+  episodeText: {
+    fontSize: 15,
+    color: Styles.Colors.WHITE,
   },
-  episodeText:{
-    fontSize:15,
-    color:"white",
-  }
 });
