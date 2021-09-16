@@ -18,7 +18,7 @@ The app includes the followings functionalities:
 ### Requirements
 
 * Node.js v12.18.3
-* Expo SDK 40.0.0
+* Expo SDK 42.0.3
 
 ### Installing
 
